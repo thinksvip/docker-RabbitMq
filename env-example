@@ -1,0 +1,35 @@
+###########################################################
+###################### General Setup ######################
+###########################################################
+
+### Paths #################################################
+
+
+
+# Choose storage path on your machine. For all storage systems
+DATA_PATH_HOST=./data/
+
+### Drivers ################################################
+
+# All volumes driver
+VOLUMES_DRIVER=local
+
+# All Networks driver
+NETWORKS_DRIVER=bridge
+
+### TIME ZONE ############################################
+TIME_ZONE=Asia/Shanghai
+
+###########################################################
+################ Containers Customization #################
+###########################################################
+
+### RABBITMQ #################################################
+
+RABBITMQ_NODE_HOST_PORT = 5672
+RABBITMQ_MANAGEMENT_HTTP_HOST_PORT = 15672
+RABBITMQ_MANAGEMENT_HTTPS_HOST_PORT = 15671
+RABBITMQ_DEFAULT_USER = thinks
+RABBITMQ_DEFAULT_PASS = 123456789
+
+
