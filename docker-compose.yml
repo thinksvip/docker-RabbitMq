@@ -1,7 +1,7 @@
 version: '3.7'
 services:
     rabbitmq:
-        build: ./
+        image: registry.cn-shenzhen.aliyuncs.com/thinks/rabbitmq:latest
         ports:
         - "${RABBITMQ_NODE_HOST_PORT}:5672"
         - "${RABBITMQ_MANAGEMENT_HTTP_HOST_PORT}:15672"
