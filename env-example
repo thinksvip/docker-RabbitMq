@@ -4,8 +4,6 @@
 
 ### Paths #################################################
 
-
-
 # Choose storage path on your machine. For all storage systems
 DATA_PATH_HOST=./data/
 
@@ -17,6 +15,11 @@ VOLUMES_DRIVER=local
 # All Networks driver
 NETWORKS_DRIVER=bridge
 
+### Docker Host IP ########################################
+
+# Enter your Docker Host IP (will be appended to /etc/hosts). Default is `10.0.75.1`
+DOCKER_HOST_IP=10.0.75.1
+
 ### TIME ZONE ############################################
 TIME_ZONE=Asia/Shanghai
 
@@ -24,12 +27,21 @@ TIME_ZONE=Asia/Shanghai
 ################ Containers Customization #################
 ###########################################################
 
-### RABBITMQ #################################################
+### RabbitMQ #################################################
 
-RABBITMQ_NODE_HOST_PORT = 5672
-RABBITMQ_MANAGEMENT_HTTP_HOST_PORT = 15672
-RABBITMQ_MANAGEMENT_HTTPS_HOST_PORT = 15671
-RABBITMQ_DEFAULT_USER = thinks
-RABBITMQ_DEFAULT_PASS = 123456789
+RabbitMQ_VERSION=3.8.9
+RabbitMQ_HOST_HTTP_PORT=5672
+RabbitMQ_MANAGEMENT_PORT=15672
+RabbitMQ_HOST_LOG_PATH=./log/RabbitMQ/
+RabbitMQ_HOST_CONF_PATH=./conf/
+
+RABBITMQ_ERLANG_COOKIE=SWQOKODSQALRPCLNMEQG
+RABBITMQ_DEFAULT_USER=rabbitmq
+RABBITMQ_DEFAULT_PASS=rabbitmq
+RABBITMQ_DEFAULT_VHOST="/"
+
+
+
+
 
 

@@ -19,3 +19,7 @@
 ```
     docker-compose down -v
 ```
+
+## 插件
+
+已启用延迟消息队列

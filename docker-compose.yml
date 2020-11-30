@@ -1,20 +1,18 @@
-version: '3.7'
+version: '3.8'
 services:
-    rabbitmq:
-        image: registry.cn-shenzhen.aliyuncs.com/thinks/rabbitmq:latest
-        ports:
-        - "${RABBITMQ_NODE_HOST_PORT}:5672"
-        - "${RABBITMQ_MANAGEMENT_HTTP_HOST_PORT}:15672"
-        - "${RABBITMQ_MANAGEMENT_HTTPS_HOST_PORT}:15671"
-        privileged: true
-        environment:
-        - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
-        - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
-        restart: always
-        container_name: laradock-rabbitmq
-        volumes:
-        - ${DATA_PATH_HOST}/rabbitmq:/var/lib/rabbitmq
-        networks:
-        - backend
-networks:
-   backend:
+  rabbitmq:
+    image: registry.cn-shenzhen.aliyuncs.com/thinks/rabbitmq:latest
+    restart: always
+    container_name: rabbitmq
+    volumes:
+        - ${DATA_PATH_HOST}:/var/lib/rabbitmq/
+        - ${RabbitMQ_HOST_LOG_PATH}:/var/log/rabbitmq/
+    environment:
+        RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
+        RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+        RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+        RABBITMQ_DEFAULT_VHOST: ${RABBITMQ_DEFAULT_VHOST}
+        TZ: ${TIME_ZONE}
+    ports:
+        - ${RabbitMQ_HOST_HTTP_PORT}:5672
+        - ${RabbitMQ_MANAGEMENT_PORT}:15672
